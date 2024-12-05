@@ -22,5 +22,6 @@ export KUBECONFIG="$DEFAULT_KUBECONFIG:$KUBECONFIG_TO_MERGE"
 # Merge and save back to the default kubeconfig
 kubectl config view --flatten > /tmp/merged_kubeconfig
 mv /tmp/merged_kubeconfig "$DEFAULT_KUBECONFIG"
+chmod 600 "$DEFAULT_KUBECONFIG"
 
 echo "Successfully merged $KUBECONFIG_TO_MERGE into $DEFAULT_KUBECONFIG"
